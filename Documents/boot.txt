@@ -1,0 +1,209 @@
+
+1. What is the Bootstrap grid system?
+The Bootstrap grid system is a layout system that uses a series of containers, rows, and columns to design responsive web layouts that adapt to different screen sizes.
+It is based on a 12-column grid, allowing developers to define how much width each element should take across various device sizes (e.g., col-sm-6, col-md-4).
+✅ Example:
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">Column 1</div>
+    <div class="col-md-6">Column 2</div>
+  </div>
+</div>
+
+This creates two equal columns that adjust automatically on smaller screens.
+
+2. Why use semantic tags (<header>, <footer>, <nav>) instead of <div> tags?
+Semantic tags describe the purpose and meaning of content to both browsers and developers.
+They improve accessibility, SEO (search engine optimization), and make code more readable.
+Using <div> for everything does not convey meaning about the structure of the page.
+✅ Example:
+<header>Website Header</header>
+<nav>Navigation Links</nav>
+<footer>Footer Content</footer>
+
+
+3. What is an "event listener" in JavaScript?
+An event listener waits for a specific event (like a click) to occur on an element, then executes a function.
+✅ Example:
+document.getElementById('submit-btn')
+  .addEventListener('click', validateForm);
+
+This code listens for a click on the button with ID submit-btn and runs validateForm().
+
+4. Why does “undefined” appear on a webpage?
+“undefined” usually appears when:
+
+
+You try to display a variable that has not been assigned a value, or
+
+
+You return nothing from a function and then try to display its value.
+
+
+✅ Example:
+let name;
+console.log(name); // undefined
+
+
+5. How does fetch() work for GET and POST requests?
+✅ GET request:
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log(data));
+
+✅ POST request:
+fetch('https://api.example.com/submit', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({name: 'John', age: 25})
+})
+.then(response => response.json())
+.then(data => console.log(data));
+
+
+6. Inline, Internal, and External CSS
+TypeDescriptionExampleInline CSSWritten directly in the HTML element using style attribute<p style="color:red;">Hello</p>Internal CSSWritten inside a <style> tag in the <head> section<style>p{color:blue;}</style>External CSSWritten in a separate .css file and linked using <link><link rel="stylesheet" href="style.css">
+
+7. What is a void (empty) tag in HTML?
+A void tag does not have a closing tag and cannot contain content.
+✅ Examples:
+
+
+<img src="image.jpg" alt="image">
+
+
+<br> (line break)
+
+
+
+8. Steps & Code for a Responsive Bootstrap Navbar with Dropdown & Sign-in Button
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Brand</a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown">
+            Menu
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Option 1</a></li>
+            <li><a class="dropdown-item" href="#">Option 2</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="btn btn-primary">Sign In</button>
+    </div>
+  </div>
+</nav>
+
+
+9. CSS Positioning Scenario
+If the outer <div> has no positioning set, the inner <span> (with position: absolute; top:0; left:0;) will be positioned relative to the page (viewport).
+✅ To make it position relative to the outer <div>, add:
+.outer-div {
+  position: relative;
+}
+
+
+10. innerHTML vs textContent
+
+
+innerHTML → Inserts HTML code inside an element.
+
+
+textContent → Inserts plain text (HTML tags are not rendered).
+
+
+✅ Example:
+element.innerHTML = "<b>Hello</b>"; // Bold text
+element.textContent = "<b>Hello</b>"; // Shows <b>Hello</b>
+
+👉 Use textContent when only inserting text (for safety and speed).
+
+11. HTML Structure with Example
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>Header Content</header>
+  <nav>Navigation Links</nav>
+  <main>
+    <section>Main Content Area</section>
+  </main>
+  <footer>Footer Info</footer>
+</body>
+</html>
+
+Features:
+
+
+<!DOCTYPE html> → Declares HTML5
+
+
+<head> → Metadata and links
+
+
+<body> → Visible content
+
+
+Semantic structure (<header>, <main>, <footer>)
+
+
+
+12. Lifecycle of a Page
+
+
+Parsing HTML → Browser reads HTML and builds DOM.
+
+
+Load CSS/JS → Stylesheets and scripts are loaded.
+
+
+DOMContentLoaded → DOM fully built (but not necessarily images).
+
+
+Load Event → Page fully loaded (including images).
+
+
+User Interaction → Events handled dynamically.
+
+
+Unload/BeforeUnload → When user leaves or closes the page.
+
+
+
+13. Flexbox Properties
+Flexbox helps in aligning and distributing items within a container.
+PropertyDescriptiondisplay: flex;Enables flexboxflex-directionRow / Column layoutjustify-contentAlign items horizontallyalign-itemsAlign items verticallyflex-wrapWrap items onto multiple linesalign-contentSpace between wrapped linesalign-selfOverrides align-items for one itemflex-grow, flex-shrink, flex-basisControl item sizing
+✅ Example:
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+14. Carousel & Dropdowns
+a) In a Bootstrap Carousel, .carousel-indicators are small circles (or icons) that indicate and allow navigation between slides.
+b) For a Dropdown, the button needs these two attributes:
+data-bs-toggle="dropdown"
+data-bs-target="#dropdownMenu"
+
+✅ Example:
+<button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+  Dropdown
+</button>
+
+
+Would you like me to format these answers in a printable table or PDF-friendly layout for submission?
